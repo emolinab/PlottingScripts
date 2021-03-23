@@ -6,7 +6,12 @@ library(luplot)
 
 #Reads the gdx
 tag <- "meetingMarch25"
-gdx_c<-"/p/projects/landuse/users/mbacca/magpie_versions/"
+
+gdx_c<-c("/p/projects/landuse/users/mbacca/magpie_versions/sticky_lpjml5/output/Sticky_LPJmL5_dynamic_nocc__2021-03-18_22.33.33/",
+         "/p/projects/landuse/users/mbacca/magpie_versions/sticky_lpjml5/output/Sticky_LPJmL5_dynamic_cc__2021-03-18_22.27.55",
+         "/p/projects/landuse/users/mbacca/magpie_versions/sticky_lpjml5/output/Sticky_LPJmL5_regional_nocc__2021-03-18_22.31.43",
+         "/p/projects/landuse/users/mbacca/magpie_versions/sticky_lpjml5/output/Sticky_LPJmL5_regional_nocc__2021-03-18_22.31.43")
+
 folder <- "/p/projects/landuse/users/mbacca/Plotting_scripts/Results/"
 mobility <- FALSE
 #Capital stocks regional level
@@ -19,7 +24,6 @@ MobileStocks <- readGDX(gdx,"p38_capital_mobile")
 
 Stocks <- if (mobility=FALSE) ImmobileStocks + MobileStocks else mbind(ImmobileStocks,MobileStocks)
 Stocks_plot <- as.ggplot(Stocks)
-
-
 }
+return(Stocks_plot)
 }
